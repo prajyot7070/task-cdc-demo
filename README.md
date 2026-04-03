@@ -33,11 +33,3 @@ Payload: {"title": "Task Name", "status": "open"}
 
 ### GET /changes
 Returns the full CDC change log captured by the database trigger.
-
-## Technologies Used
-
-1. PHP 8.3 (Apache)
-2. PostgreSQL 16
-3. PDO (Database abstraction)
-4. Composer (PSR-4 Autoloading)
-5. Docker
