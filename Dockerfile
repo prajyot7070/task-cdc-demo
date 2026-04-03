@@ -3,7 +3,7 @@ RUN apt-get update && apt-get install -y libpq-dev libonig-dev unzip git \
     && docker-php-ext-install pdo pdo_pgsql mbstring
 RUN a2enmod rewrite
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
-# Set the DocumentRoot directly to /var/www/html/src so the index.php is the entry
+# Set the DocumentRoot to src/ and tell Apache to listen to .htaccess (AllowOverride All)
 RUN sed -i 's|DocumentRoot /var/www/html|DocumentRoot /var/www/html/src|g' /etc/apache2/sites-available/000-default.conf
 WORKDIR /var/www/html
 COPY . .
